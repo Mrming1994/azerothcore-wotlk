@@ -2520,9 +2520,9 @@ SkillGain.Weapon    = 1
 #                     0   - (SkillChance.Grey)
 
 SkillChance.Orange = 100
-SkillChance.Yellow = 75
-SkillChance.Green  = 25
-SkillChance.Grey   = 0
+SkillChance.Yellow = 85
+SkillChance.Green  = 75
+SkillChance.Grey   = 65
 
 #
 #    SkillChance.MiningSteps
@@ -2591,7 +2591,7 @@ DurabilityLossChance.Block = 0.05
 #                     MaxPlayerLevel+1 - (Disabled)
 #                     -10              - (Enabled, Level 1+ characters have 10 minute duration)
 
-Death.SicknessLevel = 11
+Death.SicknessLevel = 81
 
 #
 #    Death.CorpseReclaimDelay.PvP

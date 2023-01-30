@@ -118,5 +118,19 @@
     },
     "deno.enable": true,
     "deno.path": "deps/deno/bin/deno",
-    "deno.lint": true
+    "deno.lint": true,
+    "search.useIgnoreFiles": false,
+    "files.exclude": {
+      "**/.DS_Store": false,
+      "**/.git": false,
+      "**/.hg": false,
+      "**/.svn": false,
+      "**/CVS": false,
+      "**/Thumbs.db": false
+    },
+    "search.exclude": {
+      "**/*.code-search": false,
+      "**/bower_components": false,
+      "**/node_modules": false
+    }
 }
