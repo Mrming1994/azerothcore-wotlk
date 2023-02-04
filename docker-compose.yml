@@ -206,30 +206,10 @@ services:
       - ${DOCKER_VOL_DATA_MMAPS:-./env/docker/data/mmaps}:/azerothcore/env/dist/data/mmaps
     profiles: [local, app, worldserver]
     depends_on:
-      ac-eluna-ts-dev:
-        condition: service_started
       ac-database:
         condition: service_healthy
       ac-db-import:
         condition: service_completed_successfully
-
-  ac-eluna-ts-dev:
-    image: acore/eluna-ts:master
-    # the build:lib is done in the healthcheck
-    command: sh -c "cd /eluna-ts/modules && touch index.ts && npm install && cd /eluna-ts && npm run dev"
-    # small workaround to make the other services to wait for the eluna-ts build
-    healthcheck:
-      test: sh -c "cd /eluna-ts/modules/eluna-ts && npm run build:lib && npm run build"
-      timeout: 60s
-      retries: 10
-      interval: 5s
-      start_period: 10s
-    restart: unless-stopped
-    volumes:
-      # from typescript
-      - ./scripts/typescript:/eluna-ts/modules
-      # to lua
-      - ./scripts/lua:/eluna-ts/dist
 
   ac-authserver:
     <<: *ac-service-conf # merge with ac-service-conf
